@@ -209,9 +209,9 @@ function getcertnames() {
 # opens the given location
 function s() {
 	if [ $# -eq 0 ]; then
-		subl .;
+		subl -n .;
 	else
-		subl "$@";
+		subl -n "$@";
 	fi;
 }
 
@@ -251,4 +251,27 @@ function o() {
 # small enough for one screen.
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+}
+
+# Useful functions
+mand() {
+    dash manpages:$1
+}
+dash() {
+    open dash://$1
+}
+mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+sshd() {
+    set -x
+    sed -i '' "$1d" ~/.ssh/known_hosts
+    set +x
+}
+scan() {
+    echo "usage: scan network mac"
+    set -x
+    nmap -sn $1/24
+    arp -a | grep $2
+    set +x
 }

@@ -12,3 +12,10 @@ Thumbs.db
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+
+# CTags
+.tags
+.tags_sorted_by_file
+
+# OSX temp files
+*~
