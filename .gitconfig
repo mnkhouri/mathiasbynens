@@ -54,6 +54,9 @@
 	branches = branch -a
 	remotes = remote -v
 
+	# List aliases
+	aliases = config --get-regexp alias
+
 	# Amend the currently staged files to the latest commit
 	amend = commit --amend --reuse-message=HEAD
 
@@ -109,7 +112,7 @@
 [core]
 
 	# Use custom `.gitignore` and `.gitattributes`
-	excludesfile = /Users/marckhouri/.gitignore_global
+	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error
@@ -124,6 +127,10 @@
 	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
+
+	# Speed up commands involving untracked files such as `git status`.
+	# https://git-scm.com/docs/git-update-index#_untracked_cache
+	untrackedCache = true
 
 [color]
 
@@ -150,6 +157,11 @@
 	changed = red
 	untracked = cyan
 
+[commit]
+
+	# https://help.github.com/articles/signing-commits-using-gpg/
+	gpgsign = true
+
 [difftool "diffmerge"]
 
     cmd = /Applications/Diffmerge.app/Contents/MacOS/diffmerge $LOCAL $REMOTE
@@ -165,6 +177,11 @@
 	# Use `hexdump` to diff binary files
 	textconv = hexdump -v -C
 
+[help]
+
+	# Automatically correct and execute mistyped commands
+	autocorrect = 1
+
 [mergetool "diffmerge"]
 
     cmd = /Applications/Diffmerge.app/Contents/MacOS/diffmerge $LOCAL $REMOTE
@@ -177,9 +194,7 @@
 
 [push]
 
-	# Use the Git 1.x.x default to avoid errors on machines with old Git
-	# installations. To use `simple` instead, add this to your `~/.extra` file:
-	# `git config --global push.default simple`. See http://git.io/mMah-w.
+	# https://git-scm.com/docs/git-config#git-config-pushdefault
 	default = simple
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
@@ -207,5 +222,3 @@
 	insteadOf = "gist:"
 [credential]
 	helper = osxkeychain
-[commit]
-	template = /Users/marckhouri/.stCommitMsg
