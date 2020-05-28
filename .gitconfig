@@ -1,8 +1,6 @@
 [user]
 	name = Marc Khouri
 	email = marc@khouri.ca
-[github]
-	user = marcwink
 [difftool "sourcetree"]
 	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -13,12 +11,6 @@
 	clean = git media clean %f
 	smudge = git media smudge %f
 	required = true
-
-[sendemail]
-    smtpEncryption = tls
-    smtpServer = smtp.gmail.com
-    smtpUser = marc@khouri.ca
-    smtpServerPort = 587
 
 [alias]
 
@@ -156,11 +148,6 @@
 	added = yellow
 	changed = red
 	untracked = cyan
-
-[commit]
-
-	# https://help.github.com/articles/signing-commits-using-gpg/
-	gpgsign = true
 
 [difftool "diffmerge"]
 
