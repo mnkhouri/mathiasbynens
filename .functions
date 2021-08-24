@@ -170,6 +170,14 @@ function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
+function countfiles() {
+	find . -maxdepth 1 -type d -print0 | while read -d '' -r dir; do
+		# ls is faster than find: https://unix.stackexchange.com/a/90152
+		num=$(cd $dir; \ls -afqR | wc -l);
+		printf "%5d files in directory %s\n" "$num" "$dir";
+	done | sort -nr
+}
+
 # Useful functions
 mand() {
     dash manpages:$1
