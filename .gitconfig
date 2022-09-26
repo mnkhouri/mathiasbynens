@@ -1,6 +1,7 @@
 [user]
 	name = Marc Khouri
 	email = marc@khouri.ca
+
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
@@ -65,3 +66,6 @@
 
 [credential]
 	helper = osxkeychain
+
+[includeIf "gitdir:**/mnck/**"]
+  path = ~/.gitconfig_work
