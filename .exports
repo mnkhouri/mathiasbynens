@@ -37,3 +37,7 @@ export NVM_DIR=~/.nvm
 # Avoid issues with `gpg` as installed via Homebrew.
 # https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$(tty);
+
+# Avoid spurious "dirty" issues with submodules and oh-my-zsh (mostly in Fuchsia)
+# https://github.com/ohmyzsh/ohmyzsh/commit/7cc3a32bff9b283bf5eea139b92cbfddf3b75de5
+export GIT_STATUS_IGNORE_SUBMODULES='git';
